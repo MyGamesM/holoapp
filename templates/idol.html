@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{name}}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/idol.css') }}">
+</head>
+<body>
+	<div class="main">
+		<div class="content">
+			<table class="table">
+				<tr>
+					<td>
+						<img src={{icon}} class="pfp">
+					</td>
+					<td>
+						{{name}}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>{{subcount}}</p>
+					</td>
+					<td>
+						<p>{{viewcount}}</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href='https://www.youtube.com/channel/{{yt}}'>Youtube</a>
+					</td>
+					<td>
+						<a href='https://www.twitter.com/{{twt}}'>Twitter</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

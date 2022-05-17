@@ -14,7 +14,7 @@ def home():
 @app.route("/idol<id>")
 def idol(id):
 	return render_template(
-		"base_idol.html",
+		"idol.html",
 		icon=data[int(id)]['photo'],
 		name=data[int(id)]['name'],
 		subcount=data[int(id)]['subscriber_count'],

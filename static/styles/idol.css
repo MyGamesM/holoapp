@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+	/* margin: 0; */
+	padding: 0;
+	font-family: 'poppins';
+	color: #fff;
+
+
+	--dark-gray: #313131;
+	--light-gray: #8e8e8e;
+	--lime: #92E897;
+}
+
+body {
+	background-color: var(--dark-gray);
+}
+
+.main {
+	display: grid;
+	place-items: center;
+	grid-template-rows: 25vh 50vh 25vh;
+}
+
+.content {
+	grid-row: 2 / 3;
+	background-color: var(--light-gray);
+	/* border: #202020 solid calc((1vh + 1vh) / 2); */
+}
+
+.table {
+	font-size: max(20px, calc((2vw + 2vh) / 2));
+    border-spacing: 1rem 0.5rem;
+}
+
+.table, th, td {
+	border: var(--dark-gray) 4px solid;
+}
+
+.pfp {
+	width: min(800px, calc((15vw + 15vh) / 2));
+}
