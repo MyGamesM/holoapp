@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Holoapp</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
+	<script>
+		function clicked(id) {
+			console.log("Clicked: " + id);
+			window.location.href = "idol" + id;
+		}
+	</script>
+</head>
+<body>
+	<div class="gridDiv">
+		<h1 class="title">Holoapp</h1>
+		<div class="iconGrid">
+			{% for i in range(count) %}
+				<button class="redirectButton" onclick="clicked('{{ i }}')">
+					<img src="{{ data[i]['photo'] }}" alt="" style="width: 100px">
+				</button>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+</html>
