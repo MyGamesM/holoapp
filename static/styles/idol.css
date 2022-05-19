@@ -31,6 +31,7 @@ body {
 .table {
 	font-size: max(20px, calc((2vw + 2vh) / 2));
     border-spacing: 1rem 0.5rem;
+	text-align:center;
 }
 
 .table, th, td {
