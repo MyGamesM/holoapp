@@ -9,58 +9,35 @@ class getData():
 		self.url = url
 		self.count = 0
 
-	def get1(self):
-		data = requests.get(self.url).json()
-		count = data['count']
-		self.count += data['count']
-
-		del data['count']
-		del data['total']
-
-		for i in range(count):
-			del data['channels'][i]['bb_space_id']
-			del data['channels'][i]['description']
-			del data['channels'][i]['published_at']
-			del data['channels'][i]['video_count']
-			del data['channels'][i]['video_original']
-			# del data['channels'][i]['photo']
-			data['channels'][i]['id'] = i + 1
-
-		data = data['channels']
-
-		return data
-
-	def get2(self):
-		data = requests.get(f"{self.url}&offset=50").json()
-		count = data['count']
-		self.count += data['count']
-
-		del data['count']
-		del data['total']
-
-		for i in range(count):
-			del data['channels'][i]['bb_space_id']
-			del data['channels'][i]['description']
-			del data['channels'][i]['published_at']
-			del data['channels'][i]['video_count']
-			del data['channels'][i]['video_original']
-			# del data['channels'][i]['photo']
-			data['channels'][i]['id'] = 51 + i
-
-		data = data['channels']
-
-		return data
-
 	def get(self):
-		data = self.get1() + self.get2()
+		def get1(offset):
+			data = requests.get(f"{self.url}?limit=50&offset={offset}").json()
+			count = data['count']
+			self.count += data['count']
 
+			del data['count']
+			del data['total']
+
+			for i in range(count):
+				del data['channels'][i]['bb_space_id']
+				del data['channels'][i]['description']
+				del data['channels'][i]['published_at']
+				del data['channels'][i]['video_count']
+				del data['channels'][i]['video_original']
+				data['channels'][i]['id'] = i + offset + 1
+
+			data = data['channels']
+
+			return data
+
+		data = get1(0) + get1(50)
 		return data
 
-	def getCount(self):
+	def getCount(self) -> int:
 		self.count = 0
 		self.get()
 		return self.count
 
 if __name__ == "__main__":
-	app = getData(url="https://api.holotools.app/v1/channels?limit=50")
-	pp(app.getCount())
+	app = getData(url="https://api.holotools.app/v1/channels")
+	pp(len(app.get()))

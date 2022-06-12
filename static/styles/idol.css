@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-	/* margin: 0; */
+	margin: 0;
 	padding: 0;
 	font-family: 'poppins';
 	color: #fff;
-
 
 	--dark-gray: #313131;
 	--light-gray: #8e8e8e;
@@ -30,7 +29,7 @@ body {
 
 .table {
 	font-size: max(20px, calc((2vw + 2vh) / 2));
-    border-spacing: 1rem 0.5rem;
+    /* border-spacing: 1rem 0.5rem; */
 	text-align:center;
 }
 
