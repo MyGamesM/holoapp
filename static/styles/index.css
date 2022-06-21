@@ -6,7 +6,6 @@
 	font-family: 'poppins';
 	color: #fff;
 
-
 	--dark-gray: #313131;
 	--light-gray: #8e8e8e;
 	--lime: #92E897;
@@ -18,7 +17,6 @@ body {
 
 .gridDiv {
 	display: grid;
-	/* place-items: center; */
 }
 
 .title {
@@ -28,9 +26,7 @@ body {
 
 .iconGrid {
 	display: grid;
-	/* place-items: center; */
-	/* place-self: center; */
-	grid-template-columns: repeat(auto-fill, 120px);
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 	margin: 0 1vw 1vw 1vw;
 	grid-gap: calc((1vw + 1vh) / 2);
 }
