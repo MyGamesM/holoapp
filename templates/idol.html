@@ -7,32 +7,14 @@
 <body>
 	<div class="main">
 		<div class="content">
-			<table class="table">
-				<tr>
-					<td>
-						<img src={{icon}} class="pfp">
-					</td>
-					<td>
-						<p>{{name}}</p>
-					</td>
-				</tr>
-				<tr>
-					<td class="txt">
-						<p>{{subcount}}</p>
-					</td>
-					<td class="txt">
-						<p>{{viewcount}}</p>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<a href='https://www.youtube.com/channel/{{yt}}'>Youtube</a>
-					</td>
-					<td>
-						<a href='https://www.twitter.com/{{twt}}'>Twitter</a>
-					</td>
-				</tr>
-			</table>
+			<img src={{icon}} class="pfp">
+			<p class="name text">{{name}}</p>
+
+			<p class="sub text">{{subcount}}</p>
+			<p class="view text">{{viewcount}}</p>
+
+			<a class="yt text" href='https://www.youtube.com/channel/{{yt}}'>Youtube</a>
+			<a class="twt text" href='https://www.twitter.com/{{twt}}'>Twitter</a>
 		</div>
 	</div>
 </body>
