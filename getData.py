@@ -34,12 +34,9 @@ class getData():
 		return data
 
 	def getLive(self) -> dict:
-		data = requests.get(f"{self.url}live?max_upcoming_hours=48").json()
-		# ?channel_id=34&max_upcoming_hours=168&lookback_hour=0&hide_channel_desc=1
-		# channel_id={34}
+		data = requests.get(f"{self.url}live?max_upcoming_hours=48&hide_channel_desc=1").json()
 
 		del data['ended']
-		del data['upcoming']
 
 		for i in range(len(data['live'])):
 			del data['live'][i]['id']
@@ -48,9 +45,17 @@ class getData():
 			del data['live'][i]['live_end']
 			del data['live'][i]['live_viewers']
 			del data['live'][i]['channel']['bb_space_id']
-			del data['live'][i]['channel']['description']
 			del data['live'][i]['channel']['published_at']
 			del data['live'][i]['channel']['video_count']
+
+		for i in range(len(data['upcoming'])):
+			del data['upcoming'][i]['bb_video_id']
+			del data['upcoming'][i]['live_start']
+			del data['upcoming'][i]['live_end']
+			del data['upcoming'][i]['live_viewers']
+			del data['upcoming'][i]['channel']['bb_space_id']
+			del data['upcoming'][i]['channel']['published_at']
+			del data['upcoming'][i]['channel']['video_count']
 
 		return data
 

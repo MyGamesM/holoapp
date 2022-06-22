@@ -3,10 +3,9 @@ from getData import getData
 
 app = Flask(__name__)
 
-getDataApp = getData(url="https://api.holotools.app/v1/channels")
+getDataApp = getData(url="https://api.holotools.app/v1/")
 data = getDataApp.get()
 count = getDataApp.getCount()
-print(count)
 
 @app.route("/")
 def home():
