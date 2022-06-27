@@ -6,6 +6,7 @@ app = Flask(__name__)
 getDataApp = getData(url="https://api.holotools.app/v1/")
 data = getDataApp.get()
 count = getDataApp.getCount()
+liveData = getDataApp.getLive()
 
 @app.route("/")
 def home():
@@ -23,5 +24,12 @@ def idol(id):
 		twt=data[int(id)]['twitter_link']
 	)
 
+@app.route("/live")
+def live():
+	return render_template(
+		"live.html",
+		thumbnail=liveData['live'][0]['thumbnail']
+	)
+	
 if __name__ == "__main__":
 	app.run(debug=True)
